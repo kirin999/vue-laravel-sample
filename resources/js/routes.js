@@ -6,7 +6,7 @@ import TaskEditComponent from "./components/TaskEditComponent";
 
 const routes = [
   {
-    path: '/tasks',
+    path: '/',
     name: 'task.list',
     component: TaskListComponent
   },
