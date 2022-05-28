@@ -1,8 +1,10 @@
 require('./bootstrap');
 
+import router from './routes';
 import { createApp } from 'vue';
 import HeaderComponent from "./components/HeaderComponent";
 
 const app = createApp({});
+
 app.component('header-component', HeaderComponent);
-app.mount('#app');
+app.use(router).mount('#app');
