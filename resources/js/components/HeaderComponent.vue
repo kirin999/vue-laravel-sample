@@ -7,7 +7,9 @@
           <router-link v-bind:to="{name: 'task.list'}">
             <button class="btn btn-success me-2">List</button>
           </router-link>
-          <button class="btn btn-success">ADD</button>
+          <router-link v-bind:to="{name: 'task.create'}">
+            <button class="btn btn-success">ADD</button>
+          </router-link>
         </div>
       </nav>
     </div>
