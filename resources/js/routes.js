@@ -3,6 +3,7 @@ import TaskListComponent from "./components/TaskListComponent";
 import TaskCreateComponent from "./components/TaskCreateComponent";
 import TaskShowComponent from "./components/TaskShowComponent";
 import TaskEditComponent from "./components/TaskEditComponent";
+import FruitsInformation from "./components/FruitsInformation";
 
 const routes = [
   {
@@ -25,6 +26,12 @@ const routes = [
     path: '/tasks/:taskId/edit',
     name: 'task.edit',
     component: TaskEditComponent,
+    props: true
+  },
+  {
+    path: '/fruits_information',
+    name: 'fruits.information',
+    component: FruitsInformation,
     props: true
   },
 ];

@@ -1,6 +1,11 @@
 <template>
     <div class="container">
-        <table class="table table-hover">
+        {{ fruits }}
+        <button class="btn btn-danger" v-on:click="changeFruits()">ランダムにフルーツを変更する</button>
+        <router-link v-bind:to="{name: 'fruits.information',params: {param_fruits: fruits}}">
+            <button class="btn btn-primary">フルーツ紹介ページ</button>
+        </router-link>
+        <!-- <table class="table table-hover">
             <thead class="thead-light">
             <tr>
                 <th scope="col">#</th>
@@ -33,7 +38,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     </div>
 </template>
 
@@ -43,20 +48,29 @@ import axios from 'axios';
     export default {
         data: function () {
             return {
-                tasks: []
+                tasks: [],
+                fruits: "",
+                fruits_message: "ランダムでフルーツが出るよ"
             }
         },
         methods: {
             getTasks() {
                 axios.get('/api/tasks')
                     .then((res) => {
-                        this.tasks = res.data;
+                        console.log(res.data);
+                        this.fruits = res.data;
                     });
             },
             deleteTask(id) {
                 axios.delete('/api/tasks/' + id)
                     .then((res) => {
                         this.getTasks();
+                    })
+            },
+            changeFruits(){
+                axios.get('/api/fruits')
+                    .then((res) => {
+                        this.fruits = res.data;
                     })
             }
         },
